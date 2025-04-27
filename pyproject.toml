@@ -1,0 +1,17 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "discord-japan-bot"
+version = "0.1.0"
+description = "Discord bot with Japanese language support and Gemini AI integration"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+discord-py = ">=2.0.0"
+flask = ">=2.0.0"
+google-generativeai = ">=0.3.0"
+pytz = ">=2022.1"
+python-dotenv = ">=0.20.0"
