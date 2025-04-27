@@ -18,6 +18,12 @@ def get_api_key(name, prompt):
     """Get API key from environment variable with fallback to user input."""
     value = os.getenv(name)
     if not value:
+        # Renderでは実行環境でインタラクティブな入力ができないため、
+        # 環境変数RENDERが設定されている場合はそのまま例外を発生させる
+        if os.getenv('RENDER') == 'true':
+            raise ValueError(f"環境変数 {name} が設定されていません。Renderダッシュボードで環境変数を設定してください。")
+        
+        # ローカル環境の場合は入力を受け付ける
         logger.info(f"{prompt}")
         value = input().strip()
         if not value:
